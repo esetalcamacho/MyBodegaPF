@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="ProductosCreateDlg" widgetVar="ProductosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateProductosTitle}">
+            <h:form id="ProductosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{productosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_idProductos}" for="idProductos" />
+                        <p:inputText id="idProductos" value="#{productosController.selected.idProductos}" title="#{bundle.CreateProductosTitle_idProductos}" required="true" requiredMessage="#{bundle.CreateProductosRequiredMessage_idProductos}"/>
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_proNombre}" for="proNombre" />
+                        <p:inputText id="proNombre" value="#{productosController.selected.proNombre}" title="#{bundle.CreateProductosTitle_proNombre}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_proCantidad}" for="proCantidad" />
+                        <p:inputText id="proCantidad" value="#{productosController.selected.proCantidad}" title="#{bundle.CreateProductosTitle_proCantidad}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_proPrecio}" for="proPrecio" />
+                        <p:inputText id="proPrecio" value="#{productosController.selected.proPrecio}" title="#{bundle.CreateProductosTitle_proPrecio}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_proUnidadMedida}" for="proUnidadMedida" />
+                        <p:inputText id="proUnidadMedida" value="#{productosController.selected.proUnidadMedida}" title="#{bundle.CreateProductosTitle_proUnidadMedida}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_proObservaciones}" for="proObservaciones" />
+                        <p:inputText id="proObservaciones" value="#{productosController.selected.proObservaciones}" title="#{bundle.CreateProductosTitle_proObservaciones}" />
+                        <p:outputLabel value="#{bundle.CreateProductosLabel_proStatus}" for="proStatus" />
+                        <p:inputText id="proStatus" value="#{productosController.selected.proStatus}" title="#{bundle.CreateProductosTitle_proStatus}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{productosController.create}" value="#{bundle.Save}" update="display,:ProductosListForm:datalist,:growl" oncomplete="handleSubmit(args,'ProductosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="ProductosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

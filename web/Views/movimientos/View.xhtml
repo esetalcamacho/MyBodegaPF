@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimientosViewDlg" widgetVar="MovimientosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewMovimientosTitle}">
+            <h:form id="MovimientosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimientosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewMovimientosLabel_idMovimientos}"/>
+                        <h:outputText value="#{movimientosController.selected.idMovimientos}" title="#{bundle.ViewMovimientosTitle_idMovimientos}"/>
+                        <h:outputText value="#{bundle.ViewMovimientosLabel_movFechaSalida}"/>
+                        <h:outputText value="#{movimientosController.selected.movFechaSalida}" title="#{bundle.ViewMovimientosTitle_movFechaSalida}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMovimientosLabel_movFechaIngreso}"/>
+                        <h:outputText value="#{movimientosController.selected.movFechaIngreso}" title="#{bundle.ViewMovimientosTitle_movFechaIngreso}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewMovimientosLabel_movCantidadSalida}"/>
+                        <h:outputText value="#{movimientosController.selected.movCantidadSalida}" title="#{bundle.ViewMovimientosTitle_movCantidadSalida}"/>
+                        <h:outputText value="#{bundle.ViewMovimientosLabel_movCantidadIngreso}"/>
+                        <h:outputText value="#{movimientosController.selected.movCantidadIngreso}" title="#{bundle.ViewMovimientosTitle_movCantidadIngreso}"/>
+                        <h:outputText value="#{bundle.ViewMovimientosLabel_movHora}"/>
+                        <h:outputText value="#{movimientosController.selected.movHora}" title="#{bundle.ViewMovimientosTitle_movHora}">
+                            <f:convertDateTime pattern="HH:mm:ss" />
+                        </h:outputText>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="MovimientosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

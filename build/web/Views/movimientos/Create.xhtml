@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="MovimientosCreateDlg" widgetVar="MovimientosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateMovimientosTitle}">
+            <h:form id="MovimientosCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{movimientosController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateMovimientosLabel_idMovimientos}" for="idMovimientos" />
+                        <p:inputText id="idMovimientos" value="#{movimientosController.selected.idMovimientos}" title="#{bundle.CreateMovimientosTitle_idMovimientos}" required="true" requiredMessage="#{bundle.CreateMovimientosRequiredMessage_idMovimientos}"/>
+                        <p:outputLabel value="#{bundle.CreateMovimientosLabel_movFechaSalida}" for="movFechaSalida" />
+                        <p:calendar id="movFechaSalida" pattern="MM/dd/yyyy" value="#{movimientosController.selected.movFechaSalida}" title="#{bundle.EditMovimientosTitle_movFechaSalida}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMovimientosLabel_movFechaIngreso}" for="movFechaIngreso" />
+                        <p:calendar id="movFechaIngreso" pattern="MM/dd/yyyy" value="#{movimientosController.selected.movFechaIngreso}" title="#{bundle.EditMovimientosTitle_movFechaIngreso}"  showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateMovimientosLabel_movCantidadSalida}" for="movCantidadSalida" />
+                        <p:inputText id="movCantidadSalida" value="#{movimientosController.selected.movCantidadSalida}" title="#{bundle.CreateMovimientosTitle_movCantidadSalida}" />
+                        <p:outputLabel value="#{bundle.CreateMovimientosLabel_movCantidadIngreso}" for="movCantidadIngreso" />
+                        <p:inputText id="movCantidadIngreso" value="#{movimientosController.selected.movCantidadIngreso}" title="#{bundle.CreateMovimientosTitle_movCantidadIngreso}" />
+                        <p:outputLabel value="#{bundle.CreateMovimientosLabel_movHora}" for="movHora" />
+                        <p:calendar id="movHora" pattern="HH:mm:ss" value="#{movimientosController.selected.movHora}" title="#{bundle.EditMovimientosTitle_movHora}"  showOn="button"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{movimientosController.create}" value="#{bundle.Save}" update="display,:MovimientosListForm:datalist,:growl" oncomplete="handleSubmit(args,'MovimientosCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="MovimientosCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

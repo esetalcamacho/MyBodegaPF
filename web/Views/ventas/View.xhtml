@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="VentasViewDlg" widgetVar="VentasViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewVentasTitle}">
+            <h:form id="VentasViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{ventasController.selected != null}">
+                        <h:outputText value="#{bundle.ViewVentasLabel_idVentas}"/>
+                        <h:outputText value="#{ventasController.selected.idVentas}" title="#{bundle.ViewVentasTitle_idVentas}"/>
+                        <h:outputText value="#{bundle.ViewVentasLabel_venPrecioTotal}"/>
+                        <h:outputText value="#{ventasController.selected.venPrecioTotal}" title="#{bundle.ViewVentasTitle_venPrecioTotal}"/>
+                        <h:outputText value="#{bundle.ViewVentasLabel_venFecha}"/>
+                        <h:outputText value="#{ventasController.selected.venFecha}" title="#{bundle.ViewVentasTitle_venFecha}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewVentasLabel_venStatus}"/>
+                        <h:outputText value="#{ventasController.selected.venStatus}" title="#{bundle.ViewVentasTitle_venStatus}"/>
+                        <h:outputText value="#{bundle.ViewVentasLabel_venObservaciones}"/>
+                        <h:outputText value="#{ventasController.selected.venObservaciones}" title="#{bundle.ViewVentasTitle_venObservaciones}"/>
+                        <h:outputText value="#{bundle.ViewVentasLabel_fkClientes}"/>
+                        <h:outputText value="#{ventasController.selected.fkClientes.cliNombre}" title="#{bundle.ViewVentasTitle_fkClientes}"/>
+                        <h:outputText value="#{bundle.ViewVentasLabel_fkBodega}"/>
+                        <h:outputText value="#{ventasController.selected.fkBodega.idBodega}" title="#{bundle.ViewVentasTitle_fkBodega}"/>
+                        <h:outputText value="#{bundle.ViewVentasLabel_venProducto}"/>
+                        <h:outputText value="#{ventasController.selected.venProducto.proNombre}" title="#{bundle.ViewVentasTitle_venProducto}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="VentasViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

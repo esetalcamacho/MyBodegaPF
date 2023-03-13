@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="InventarioViewDlg" widgetVar="InventarioViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewInventarioTitle}">
+            <h:form id="InventarioViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{inventarioController.selected != null}">
+                        <h:outputText value="#{bundle.ViewInventarioLabel_idBodega}"/>
+                        <h:outputText value="#{inventarioController.selected.idBodega}" title="#{bundle.ViewInventarioTitle_idBodega}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_fkRegUserID}"/>
+                        <h:outputText value="#{inventarioController.selected.fkRegUserID.regUserID}" title="#{bundle.ViewInventarioTitle_fkRegUserID}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_fkProducto}"/>
+                        <h:outputText value="#{inventarioController.selected.fkProducto.proNombre}" title="#{bundle.ViewInventarioTitle_fkProducto}"/>
+                        <h:outputText value="#{bundle.ViewInventarioLabel_fkMovimientos}"/>
+                        <h:outputText value="#{inventarioController.selected.fkMovimientos.idMovimientos}" title="#{bundle.ViewInventarioTitle_fkMovimientos}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="InventarioViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet library ="css" name="default.css"/>
+        <h:outputStylesheet library ="css" name="cssLayout.css"/>
+        <title>MyBodega</title>
+        <f:event type="preRenderView" listener="#{sessionController.validarSesion()}"/>       
+        
+    </h:head>
+
+    <h:body>
+        
+        <p:growl id="growl" life="3000" />
+
+        <div id="top">
+            <ui:insert name="top">
+             <h:form id="menuForm">
+                    <p:menubar>
+                        <p:menuitem value="#{bundle.Home}" outcome="/Views/Principal" icon="ui-icon-home"/>
+                            <p:menuitem value="Clientes" outcome="/Views/clientes/List.xhtml"/>
+                            <p:menuitem value="Inventario" outcome="/Views/inventario/List.xhtml" />
+                            <p:menuitem value="Movimientos" outcome="/Views/movimientos/List.xhtml" />
+                            <p:menuitem value="Productos" outcome="/Views/productos/List.xhtml" />
+                            <p:menuitem value="Registro" outcome="/Views/registro/List.xhtml" />
+                            <p:menuitem value="Usuario" outcome="/Views/usuario/List.xhtml" />
+                            <p:menuitem value="Ventas" outcome="/Views/ventas/List.xhtml" />
+                            <f:facet name="options">
+                                #{usuarioController.mostrarLogueado()}
+                                <p:commandButton value=" Cerrar Sesion" actionListener="#{usuarioController.cerrarSesion()}" action="/index"/>
+                            </f:facet>  
+                    </p:menubar>
+                 
+                </h:form>            
+            </ui:insert>
+        </div>
+        <div>
+            <div id="left">
+                <ui:insert name="left">Left</ui:insert>
+            </div>
+            <div>
+                <div id="right">
+                    <ui:insert name="right">Right</ui:insert>
+                </div>
+                <div id="content" class="right_content">
+                    <ui:insert name="content"> 
+                       
+                    </ui:insert>
+                </div>
+            </div>
+        </div>
+        <div id="bottom">
+            <ui:insert name="bottom"> 
+                &copy; Derechos Reservados 2022 SENA | ADSI (2374482) | Jhoan S. Camacho - Juan Esteban Quintero
+            </ui:insert>
+        </div>
+
+    </h:body>
+
+</html>

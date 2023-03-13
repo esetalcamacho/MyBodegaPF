@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>My Bodega</title>
+        <h:outputStylesheet name="css/bootstrap.css"/>
+      <style>
+            body{
+              background: #90B77D;
+              background: linear-gradient(to right, #7d9e6e, #7a9c69);
+            }
+            .bg{
+              background: url(images/grocerys.jpg);
+              background-position: center center;
+            }
+     </style>
+    </h:head>
+    
+    <h:body>
+      
+        
+        <h2>Registrarse en el sistema</h2>
+        
+        <p:messages autoUpdate="true"/>
+        
+        <h:form>
+            <f:event type="preRenderView" listener="#{usuarioController.prepareCreate()}"/>
+            
+            <p:panelGrid columns="2">
+                           
+                <p:outputLabel for="UsuIdentificacion" value="Numero de identificacion "/> 
+                <p:inputText id="UsuIdentificacion" required="true" value="#{usuarioController.selected.usuIdentificacion}"/>
+                
+                <p:outputLabel for="UsuContraseña" value="Contraseña: "/>
+                <p:password id="UsuContraseña" required="true" value="#{usuarioController.selected.usuContraseña}" match="confirmarUsuContraseña" 
+                            validatorMessage="Las contraseñas no coinciden" feedback="true"
+                            weakLabel = "Debil" strongLabel = "Fuerte" goodLabel="Buena"/>
+                
+                <p:outputLabel for="confirmarUsuContraseña" value="Confirmar Contraseña: "/>
+                <p:password id="confirmarUsuContraseña" required="true" value="#{usuarioController.selected.usuContraseña}"/>
+                
+                <p:outputLabel for="UsuNombre" value="Nombre Usuario"/>
+                <p:inputText id="UsuNombre" required="true" value="#{usuarioController.selected.usuNombre}"/>
+                
+                <p:outputLabel for="UsuApellido" value="Apellido Usuario "/>
+                <p:inputText id="UsuApellido" required="true" value="#{usuarioController.selected.usuApellido}"/>
+                
+                <p:outputLabel for="txtUsuEmail" value="Email"/>
+                <p:inputText id="txtUsuEmail" required="true" value="#{usuarioController.selected.usuEmail}"/>
+                
+                <p:commandButton value="Crear cuenta" onclick="alert('Usuario creado con exito')" actionListener="#{usuarioController.registrar()}" icon="disk"/>
+                <p:link outcome="/index.xhtml" value="Cancelar"/>
+            </p:panelGrid>
+               
+        </h:form>
+    </h:body>
+
+
+
+
+
+
+</html>
+
