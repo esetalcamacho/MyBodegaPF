@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionar clientes</title>
+    <!-- Aqui esta Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script> <!-- Aqui JS -->
+  </head>
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Barra de Navegacion -->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="3_MenuPrincipal.html">My Bodega</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="3_MenuPrincipal.html">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Inventario
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="4_Inventario.html">Consultar Inventario</a></li>
+              <li><a class="dropdown-item" href="5_Movimientos.html">Consultar movimientos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Clientes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="7_IngresarCliente.html">Crear Clientes</a></li>
+              <li><a class="dropdown-item" href="8_TablaClientes.html">Lista de Clientes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ventas
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="9_CrearVenta.html">Crear Venta</a></li>
+              <li><a class="dropdown-item" href="10_ListaDeVentas.html">Lista de Ventas</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- Barra de usuario -->
+          <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhoan Camacho
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="dropdown-item">Configuracion</a></li>
+            <li><a href="#" class="dropdown-item">Cerrar Sesion</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
+    <div class="container">
+        <h2 class="text-center my-3">Gestionar Cliente</h2> <!-- Titulo -->
+
+        <!-- Formulario de cliente -->
+
+        <form class="row g-3 border border-2 my-3" method="post">
+            <div class="col-md-6">
+                <label for="inputTipoCliente" class="form-label">Tiṕo de Cliente</label>
+                <select id="inputTipoCliente" class="form-select">
+                  <option selected>Elige...</option>
+                  <option>Empresa</option>
+                  <option>Persona Natural</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+              <label for="inputTipoID" class="form-label">Tiṕo de identificación</label>
+              <select id="inputTipoID" class="form-select">
+                <option selected>Elige...</option>
+                <option>Cedula ciudadania</option>
+                <option>Pasaporte</option>
+                <option>Cedula de extranjeria</option>
+                <option>NIT</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputCC" class="form-label">Numero de Identificacion</label>
+                <input type="number" class="form-control" id="inputCC">
+            </div>
+            <div class="col-md-6">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="name" class="form-control" id="inputName">
+            </div>
+            <div class="col-md-6">
+              <label for="inputLast" class="form-label">Apellido</label>
+              <input type="name" class="form-control" id="inputLast">
+            </div>
+            <div class="col-6">
+              <label for="inputAddress" class="form-label">Dirección</label>
+              <input type="text" class="form-control" id="inputAddress" placeholder="Calle 40...">
+            </div>
+            <div class="col-md-6">
+              <label for="inputTipoID" class="form-label">Ciudad</label>
+              <select id="inputTipoID" class="form-select">
+                <option selected>Elige...</option>
+                <option>Bogota</option>
+                <option>Medellin</option>
+                <option>Cali</option>
+                <option>Bucaramanga</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label for="inputTel" class="form-label">Telefono</label>
+              <input type="tel" class="form-control" id="inputTel">
+            </div>
+            <div class="d-grid gap-2 col-1 mx-auto my-3">
+              <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
+            </div>
+          </form>
+    </div>
+
+        <div class="container d-grid gap-2 d-md-flex justify-content-md-end my-3"> <!-- Botones de accion -->
+            <button class="btn btn-success" type="button">Crear cliente</button>
+            <button class="btn btn-warning" type="button">Editar cliente</button>
+            <button class="btn btn-danger" type="button">Eliminar cliente</button>
+        </div>
+
+        <!-- Footer -->
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">© 2022 MyBodega, Inc</p>
+            <a href="https://getbootstrap.esdocu.com/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="3_MenuPrincipal.html" class="nav-link px-2 text-muted">Inicio</a></li>
+            </ul>
+            </footer>
+        </div>
+</body>

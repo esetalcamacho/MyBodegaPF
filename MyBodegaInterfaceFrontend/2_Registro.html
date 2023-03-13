@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <!-- Aqui esta Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script> <!-- Aqui JS -->
+  </head>
+<header>
+</header>
+<body>
+    <div class="container">
+        <h2 class="text-center my-3">Registro de Usuario</h2> <!-- Titulo -->
+
+        <!-- Formulario de cliente -->
+
+        <form class="row g-3 border border-2 my-3" method="post">
+            <div class="col-md-6">
+                <label for="inputNN" class="form-label">Nombre de usuario</label>
+                <input type="text" class="form-control" id="inputNN">
+            </div>
+            <div class="col-md-6">
+              <label for="inputName" class="form-label">Nombre</label>
+              <input type="name" class="form-control" id="inputName">
+            </div>
+            <div class="col-md-6">
+              <label for="inputLast" class="form-label">Apellido</label>
+              <input type="name" class="form-control" id="inputLast">
+            </div>
+            <div class="col-6">
+              <label for="inputAddress" class="form-label">Correo electronico</label>
+              <input type="email" class="form-control" id="inputEmail" placeholder="nickname@mail.com">
+            </div>
+            <div class="col-6">
+              <label for="inputPass" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="inputPass">
+            </div>
+            <div class="col-md-6">
+              <label for="inputConPass" class="form-label">Confirmar contraseña</label>
+              <input type="password" class="form-control" id="inputConPass">
+            </div>
+            <div class="d-grid gap-2 col-1 mx-auto my-3">
+              <button type="submit" class="btn btn-primary">Crear usuario</button>
+            </div>
+          </form>
+    </div>
+        <!-- Footer -->
+
+        <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">© 2022 MyBodega, Inc</p>
+            <a href="https://getbootstrap.esdocu.com/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="3_MenuPrincipal.html" class="nav-link px-2 text-muted">Inicio</a></li>
+            </ul>
+            </footer>
+        </div>
+</body>

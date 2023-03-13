@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimientos</title>
+    <!-- Aqui esta Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script> <!-- Aqui JS -->
+  </head>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <!-- Navbar -->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="3_MenuPrincipal.html">My Bodega</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="3_MenuPrincipal.html">Inicio</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Inventario
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="4_Inventario.html">Consultar Inventario</a></li>
+              <li><a class="dropdown-item" href="5_Movimientos.html">Consultar movimientos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Clientes
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="7_IngresarCliente.html">Crear Clientes</a></li>
+              <li><a class="dropdown-item" href="8_TablaClientes.html">Lista de Clientes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ventas
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="9_CrearVenta.html">Crear Venta</a></li>
+              <li><a class="dropdown-item" href="10_ListaDeVentas.html">Lista de Ventas</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> <!-- Barra de usuario -->
+          <li class="nav-item dropdown"><a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Jhoan Camacho
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="dropdown-item">Configuracion</a></li>
+            <li><a href="#" class="dropdown-item">Cerrar Sesion</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<body>
+    <div class="container my-3">
+        <div class="row">
+          <div class="col">
+            <h2>Lista de movimientos inventario</h2>
+            <div class="busquedaInventarios my-3"> <!-- Barra de Busqueda -->
+              <input class="form-control my-2" type="text" placeholder="Buscar" aria-label="default input example">
+              <div class="form-check form-check-inline"> <!-- Opciones de busquedad -->
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Movmiento</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Fecha</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Usuario</label>
+              </div>
+              <div class="d-grid gap-2 d-md-block my-3">
+                <button class="btn btn-primary" type="button">Buscar</button>
+              </div>
+            </div>
+            <table class="table table-striped table-hover border border-2 text-center"> <!-- Tabla -->
+                <thead>
+                    <tr>
+                        <th>Movimiento</th>
+                        <th>Producto</th>
+                        <th>Cantidad</th>
+                        <th>Uni Med.</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Motivo</th>
+                        <th># Pedido</th>
+                        <th>Usuario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Salida</td>
+                        <td>Manzanas</td>
+                        <td>10</td>
+                        <td>Bultos</td>
+                        <td>07-20-2022</td>
+                        <td>10:00 a.m.</td>
+                        <td>Venta</td>
+                        <td>6062-4</td>
+                        <td>Jcamacho3</td>
+                    </tr>
+                    <tr>
+                        <td>Entrada</td>
+                        <td>Papa</td>
+                        <td>40</td>
+                        <td>Bultos</td>
+                        <td>06-20-2022</td>
+                        <td>09:00 a.m.</td>
+                        <td>Produccion</td>
+                        <td>2054-4</td>
+                        <td>Quinetero4</td>
+                    </tr>
+                    <tr>
+                        <td>Salida</td>
+                        <td>Zanahoria</td>
+                        <td>1</td>
+                        <td>Bulto</td>
+                        <td>05-10-2022</td>
+                        <td>11:00 a.m.</td>
+                        <td>Venta</td>
+                        <td>6074-8</td>
+                        <td>Quinetero4</td>
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+
+          <!-- Footer -->
+
+          <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-muted">© 2022 MyBodega, Inc</p>
+            <a href="https://getbootstrap.esdocu.com/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+            <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="3_MenuPrincipal.html" class="nav-link px-2 text-muted">Inicio</a></li>
+            </ul>
+            </footer>
+        </div>
+</body>
+</html>
